@@ -2,6 +2,9 @@ import requests
 import base64
 from secrets import clientId, clientSecret
 import json
+import wget
+import os
+import glob
 
 def url_to_id(url: str) -> str:
     print("Getting playlist id...")
@@ -27,10 +30,29 @@ def auth() -> str:
     return token
 
 def get_playlist(token: str, playlist_id: str) -> dict:
-    url = f"https://api.spotify.com/v1/playlists/{playlist_id}"
+    url = f"https://api.spotify.com/v1/playlists/{playlist_id}?market=US"
     headers = {'Authorization': f'Bearer {token}'}
     print("Requesting playlist...")
     r = requests.get(url, headers=headers)
     return r.json()
 
+def get_previews(playlist: dict) -> list:
+    print("Getting previews...")
+    tracks = playlist['tracks']['items']
+    previews = []
+    for track in tracks:
+        preview = track['track']['preview_url']
+        previews.append((track['track']['name'], preview))
+    return previews
 
+def download(previews: list, path: str) -> None:
+    for name, preview in previews:
+        if preview is not None:
+            wget.download(preview, f'{path}/{name}.mp3')
+    print("Done downloading!")
+
+def clear(path: str) -> None:
+    for file in glob.glob(f'{path}/*'):
+        os.remove(file)
+    print("Cleared!")
+    
