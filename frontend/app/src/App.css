@@ -1,6 +1,10 @@
 *{
   background-color:#282c34;
 }
+.Arrow_button {
+  background-color: transparent;
+  border-radius: 1vh;
+}
 
 .App {
   text-align: center;
@@ -9,20 +13,19 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 40vh;
+  margin-top: 5vh;
 }
 
 .App-logo {
   background-color: transparent;
-  height: 10vmin;
-  pointer-events: none;
+  height: 40vmin;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header { 
   min-height: 20vh;
@@ -37,6 +40,12 @@
   color: #61dafb;
 }
 
+.Chracter-content{
+  background-color: red;
+  flex: 1;
+  justify-content: center;
+}
+
 .Header-text {
   color:white;
   font-size: 100px;
@@ -44,8 +53,20 @@
   vertical-align: bottom;
 }
 
-.Guest_button{
+.Host_button{
   border-color: transparent;
+  background-color: white;
+  font-size: large;
+  border-radius: 25vh;
+  color: black;
+  height: 5vh;
+  width: 15vw;
+  margin: 1vh;
+}
+
+.Play_button{
+  border-color: transparent;
+  font-size: large;
   background-color: white;
   border-radius: 25vh;
   color: black;
@@ -54,21 +75,11 @@
   margin: 1vh;
 }
 
-.Spotify_button{
-  border-color: transparent;
-  background-color: #1DB954;
-  border-radius: 25vh;
-  color: white;
-  height: 5vh;
-  width: 15vw;
-  margin: 1vh;
-}
-
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
