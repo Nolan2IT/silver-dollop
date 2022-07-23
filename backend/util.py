@@ -5,6 +5,7 @@ import json
 import wget
 import os
 import glob
+import shutil
 
 def url_to_id(url: str) -> str:
     print("Getting playlist id...")
@@ -42,17 +43,21 @@ def get_previews(playlist: dict) -> list:
     previews = []
     for track in tracks:
         preview = track['track']['preview_url']
-        previews.append((track['track']['name'], preview))
+        if preview is not None:
+            previews.append((track['track']['name'], preview))
     return previews
 
 def download(previews: list, path: str) -> None:
     for name, preview in previews:
-        if preview is not None:
-            wget.download(preview, f'{path}/{name}.mp3')
+        wget.download(preview, f'{path}/{name}.mp3')
     print("Done downloading!")
 
 def clear(path: str) -> None:
     for file in glob.glob(f'{path}/*'):
         os.remove(file)
     print("Cleared!")
+
+def delete(path: str) -> None:
+    shutil.rmtree(path)
+    print("Deleted!")
     
