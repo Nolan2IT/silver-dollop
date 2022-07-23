@@ -37,16 +37,19 @@ def get_playlist(token: str, playlist_id: str) -> dict:
     r = requests.get(url, headers=headers)
     return r.json()
 
-def get_previews(playlist: dict) -> list:
+def get_song_data(playlist: dict) -> list:
     print("Getting previews...")
     tracks = playlist['tracks']['items']
-    previews = []
+    data = []
     for track in tracks:
+        name = track['track']['name']
+        artist = track['track']['artists'][0]['name']
         preview = track['track']['preview_url']
         if preview is not None:
-            previews.append((track['track']['name'], preview))
-    return previews
+            data.append((name, artist, preview))
+    return data
 
+# No longer used
 def download(previews: list, path: str) -> None:
     for name, preview in previews:
         wget.download(preview, f'{path}/{name}.mp3')
