@@ -13,7 +13,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 .App-logo {
@@ -28,7 +28,7 @@
 } */
 
 .App-header { 
-  min-height: 20vh;
+  min-height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,12 +36,11 @@
   color: white;
   
 }
-.App-link {
+.App-link { 
   color: #61dafb;
 }
 
 .Chracter-content{
-  background-color: red;
   flex: 1;
   justify-content: center;
 }
@@ -62,6 +61,59 @@
   height: 5vh;
   width: 15vw;
   margin: 1vh;
+}
+.Spotify_button{
+  border-color: transparent;
+  background-color: #1DB954;
+  font-size: large;
+  border-radius: 25vh;
+  color: white;
+  height: 5vh;
+  width: 15vw;
+  margin: 1vh;
+}
+.Spotify_button_hidden{
+  border-color: transparent;
+  background-color: #1DB954;
+  font-size: large;
+  border-radius: 25vh;
+  color: white;
+  height: 5vh;
+  width: 15vw;
+  margin: 1vh;
+  display: none;
+}
+
+.Guest_button {
+  border-color: transparent;
+  background-color: white;
+  font-size: large;
+  border-radius: 25vh;
+  color: black;
+  height: 5vh;
+  width: 15vw;
+  margin: 1vh;
+}
+.Guest_button_hidden {
+  border-color: transparent;
+  background-color: white;
+  font-size: large;
+  border-radius: 25vh;
+  color: black;
+  height: 5vh;
+  width: 15vw;
+  margin: 1vh;
+  display: none;
+}
+
+.Text-box {
+  padding: 3vh;
+}
+.Text-input {
+  color: white;
+  font-size: large;
+  width: 25vh;
+  height: 5vh;
 }
 
 .Play_button{
