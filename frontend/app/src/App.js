@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import logo from "./logo.svg";
+import spotify_logo from "./images/spotify_logo.png";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="Header-text"> Silver Dollop </div>
       </header>
+      <body>
+        <img src={spotify_logo} className="App-logo" alt="logo" />
+        <div className="App-body">
+          <button className="Spotify_button">Login with Spotify</button>
+          <button className="Guest_button">Play as Guest</button>
+        </div>
+      </body>
     </div>
   );
 }
